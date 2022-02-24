@@ -17,6 +17,6 @@ const post_newUser = (req, res) => {
 	}
 }
 
-const get_userDetails = ()
+const get_userDetails = () => {}
 
 exports.post_newUser = post_newUser;
