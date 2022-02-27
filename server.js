@@ -29,6 +29,7 @@ app.post("/api/users", handler.post_newUser);
 
 // GET : RETURN ARRAY LIST ALL USERS : api/users/
   // { USERNAME: USERNAME, USERID: ID}
+app.get("/api/users", handler.get_allUsers);
 
 // POST : ADD EXERCISE : api/users/:_id/exercises
   // PAYLOAD : description, duration ?date (if null currentDate)
