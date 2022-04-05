@@ -28,7 +28,7 @@ const listener = app.listen(process.env.PORT || 3000, () => {
 app.post("/api/users", handler.post_newUser);
 
 // GET : RETURN ARRAY LIST ALL USERS : api/users/
-  // { USERNAME: USERNAME, USERID: ID}s
+  // { USERNAME: USERNAME, USERID: ID}
 app.get("/api/users", handler.get_allUsers);
 //app.get("/api/users/:_id/logs", handler.get_singleUser);
 
