@@ -28,12 +28,14 @@ const listener = app.listen(process.env.PORT || 3000, () => {
 app.post("/api/users", handler.post_newUser);
 
 // GET : RETURN ARRAY LIST ALL USERS : api/users/
-  // { USERNAME: USERNAME, USERID: ID}
+  // { USERNAME: USERNAME, USERID: ID}s
 app.get("/api/users", handler.get_allUsers);
+//app.get("/api/users/:_id/logs", handler.get_singleUser);
 
 // POST : ADD EXERCISE : api/users/:_id/exercises
   // PAYLOAD : description, duration ?date (if null currentDate)
   // POST RETURN : { EXERCISE DATA }
+  app.post("/api/users/:_id/exercises", handler.post_newExercise);
 
 // GET : RETURN EXERCISE OF USER : api/users/:_id/logs
 

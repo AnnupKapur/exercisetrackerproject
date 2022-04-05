@@ -1,5 +1,5 @@
 const userRecord = require("../models/modelUser.js");
-const exerciseRecord = require("../models/modeExercise.js");
+const exerciseRecord = require("../models/modelExercise.js");
 
 // ------------------------
 // POST : NEW USER
@@ -28,9 +28,14 @@ const get_allUsers = (req, res) => {
 	});
 };
 
+const get_singleUser = (req, res) => {
+	const userIDsearch = req.params._id;
+}
+
 const post_newExercise = (req, res) => {
-	userRecord.findOne({'username': req.params.id}, (err,data) => {
+	userRecord.findOne({"_id": req.params["_id"]}, (err,data) => {
 		if(err){ return console.log(`Error: ${err}`)};
+
 		if(data){
 			if(!req.body.description){return res.json('Description is required')}
 			if(!req.body.duration){return res.json("Duration is required")}
@@ -40,13 +45,21 @@ const post_newExercise = (req, res) => {
 			if(!req.body.date){date = new Date();}
 
 			let newExercise = new exerciseRecord({
-				"id":req.params.id,
+				"userid":req.params["_id"],
 				"description": req.body.description,
-				"duration": req.body.duration,
-
+				"duration": parseInt(req.body.duration),
+				"date" : date,
 			})
 
-s
+			let userData = data;
+
+			newExercise.save((err, data) => {
+            if (err) { return console.log(`There has been an errorError: ${err}`) }
+				return res.json({
+					userData,
+					data,
+				})
+			})
 		} else{
 			return res.json('That user does not exist');
 		}
@@ -55,3 +68,4 @@ s
 
 exports.post_newUser = post_newUser;
 exports.get_allUsers = get_allUsers;
+exports.post_newExercise = post_newExercise;
