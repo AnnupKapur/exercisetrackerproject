@@ -1,7 +1,3 @@
 {
-	"version": 2,
-	"name": "Exercise-mongo-node-app",
-	"routes": [
-	  { "src": "/(.*)", "dest": "/server.js" }
-	]
+	"rewrites": [{ "source": "/api/(.*)", "destination": "/server.js" }]
  }
