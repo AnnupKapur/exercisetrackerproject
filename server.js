@@ -35,9 +35,7 @@ app.get("/api/users", handler.get_allUsers);
 // POST : ADD EXERCISE : api/users/:_id/exercises
   // PAYLOAD : description, duration ?date (if null currentDate)
   // POST RETURN : { EXERCISE DATA }
-  app.post("/api/users/:_id/exercises", handler.post_newExercise);
+app.post("/api/users/:_id/exercises", handler.post_newExercise);
 
-// GET : RETURN EXERCISE OF USER : api/users/:_id/logs
-
-// GET : RETURN EXERCISES OF USER : api/users/:_id/logs
-  // OPTIONAL PARAMS: [FROM, TO, LIMIT]
+// GET : RETURN EXERCISEs OF USER : api/users/:_id/logs
+app.get("/api/users/:id/logs", handler.get_UserExercises);
