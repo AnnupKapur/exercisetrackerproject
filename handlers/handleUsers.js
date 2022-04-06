@@ -58,8 +58,11 @@ const post_newExercise = (req, res) => {
 			newExercise.save((err, data) => {
             if (err) { return console.log(`There has been an errorError: ${err}`) }
 				return res.json({
-					userData,
-					data,
+					'_id': userData['_id'],
+					'username': userData.username,
+					'date': new Date(data.date).toDateString,
+					'duration': data.duration,
+					'description': data.description,
 				})
 			})
 		} else{
