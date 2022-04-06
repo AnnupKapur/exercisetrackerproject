@@ -47,7 +47,7 @@ const post_newExercise = (req, res) => {
 			if(!req.body.date){date = new Date();}
 
 			let newExercise = new exerciseRecord({
-				"userid":req.params["_id"],
+				"userid":req.params["_id"] || req.body["_id"],
 				"description": req.body.description,
 				"duration": parseInt(req.body.duration),
 				"date" : date,
