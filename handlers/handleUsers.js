@@ -60,7 +60,7 @@ const post_newExercise = (req, res) => {
 				return res.json({
 					'_id': userData['_id'],
 					'username': userData.username,
-					'date': new Date(data.date).toDateString,
+					'date': new Date(data.date).toDateString(),
 					'duration': data.duration,
 					'description': data.description,
 				})
